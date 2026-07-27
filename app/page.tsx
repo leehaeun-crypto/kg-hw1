@@ -148,13 +148,6 @@ export default function Home() {
             <p className="final">{fortune.fortuneMessage}</p>
           </div>
 
-          {fortune.source === "demo" && (
-            <p className="demo-badge">
-              ※ 데모 모드 (OPENAI_API_KEY를 설정하면 GPT가 매번 새 운세를
-              써 드립니다)
-            </p>
-          )}
-
           <div className="actions">
             <button onClick={copyResult}>
               {copied ? "복사 완료! ✅" : "결과 복사하기 📋"}
