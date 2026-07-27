@@ -1,0 +1,22 @@
+{
+  "name": "toegeun-unse",
+  "version": "1.0.0",
+  "private": true,
+  "description": "이름을 넣으면 GPT가 오늘의 퇴근 운세를 점쳐주는 웹 서비스",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^15.3.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "typescript": "^5.8.3"
+  }
+}
