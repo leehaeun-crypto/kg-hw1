@@ -9,6 +9,7 @@ export function buildSystemPrompt(): string {
 - 업무 이야기만 반복하지 말고 일상생활, 컨디션, 식사, 교통, 날씨, 실수 등 다양한 소재를 활용한다.
 - 평범한 사건을 지나치게 진지한 점술가 말투로 해석해 웃기게 만든다.
 - 같은 이름을 다시 입력해도 매번 다른 결과가 나오도록 한다.
+- 입력에 포함된 '변주용 내부값'은 결과를 다양하게 만들기 위한 난수일 뿐이다. 어떤 출력 항목에도 이 숫자를 쓰거나 언급하거나 점술적으로 해석하지 않는다.
 - 결과를 읽었을 때 하나의 상황이 바로 상상되도록 구체적으로 묘사한다.
 - 각 항목은 한두 문장으로 짧고 재치 있게 작성한다.
 
@@ -57,7 +58,7 @@ export function buildUserPrompt(name: string): string {
     weekday: "long",
     timeZone: "Asia/Seoul",
   });
-  // 같은 이름이라도 매번 다른 결과가 나오도록 기운 번호를 섞는다
-  const energy = Math.floor(Math.random() * 100000);
-  return `이름: ${name}\n오늘 날짜: ${today}\n오늘의 기운 번호: ${energy} (이 번호의 분위기를 반영해 이전과 다른 새로운 운세를 생성할 것)`;
+  // 같은 이름이라도 매번 다른 결과가 나오게 하되, 이 값 자체는 결과에 노출하지 않는다.
+  const variationSeed = Math.floor(Math.random() * 100000);
+  return `이름: ${name}\n오늘 날짜: ${today}\n변주용 내부값: ${variationSeed} (결과의 소재를 다양화하는 용도로만 사용하고, 숫자 자체를 출력하거나 언급하거나 해석하지 말 것)`;
 }
